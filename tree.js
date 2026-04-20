@@ -13,7 +13,7 @@ async function generateProtoTree() {
 
         if (stats.isDirectory()) {
             const children = fs.readdirSync(dir)
-                .filter(child => !child.startsWith('.') && !['index.html', 'tree.js', 'tree.proto', 'files.bin', 'node_modules', 'package.json', 'bun.lock', '_headers', '404.html'].includes(child))
+                .filter(child => !child.startsWith('.') && !['index.html', 'tree.js', 'tree.proto', 'files.bin', 'node_modules', 'package.json', 'package-lock.json', 'bun.lock', '_headers', '404.html'].includes(child))
                 .map(child => getTree(path.join(dir, child)));
             
             return { name, path: nodePath, type: 1, children };
